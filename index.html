@@ -194,7 +194,7 @@ window.Quarto = {
 <figcaption>15×15 arena: colored views, green goal.</figcaption>
 </figure>
 </div></div><p>The task is <code>MultiGrid-Cluttered-Fixed-15x15</code>. It contains three agents, a fixed goal, and fixed walls. Starting positions and headings vary across episodes. Each episode lasts 100 environment steps, with one action per agent at each step. The environment randomizes the order in which those actions execute.</p>
-<p>Each learner receives its own 5×5 egocentric observation and the headings of all three agents. The observation is a symbolic array encoding object type, color or agent identity, and state. The rendered images in this post are a visualization of that encoding.</p>
+<p>Each learner receives its own 5×5 egocentric observation and the headings of all three agents. The observation is a symbolic array encoding object type, color or agent identity, and state. The partial-view images visualize that encoding; the full arena is rendered from the environment’s true state.</p>
 <p>There are seven actions. Left, right, and forward provide navigation; the object-interaction actions and wait consume a step without changing objects on this map. An agent cannot enter a cell occupied by another agent, so they can block one another’s movement. They remain visible objects in one another’s observations, and walls occlude vision.</p>
 <p>Reaching the goal gives</p>
 <p><span class="math display">\[
@@ -386,7 +386,7 @@ Figure&nbsp;2: Individual training returns, with one panel per run and consisten
 </figcaption>
 </figure>
 </div>
-<p>Seed 3’s largest sustained loss belongs to agent 0. Its mean return falls from 2.07 over episodes 40k–50k to 0.61 over 80k–90k, before recovering partially to 0.88 in the final 2,000 episodes. Over those same two 10,000-episode intervals, collective return falls from 6.17 to 4.41: agent 0 accounts for about 83% of that reduction. Agent 1 remains comparatively strong, finishing at 2.13, while agent 2 finishes at 1.58.</p>
+<p>Seed 3’s largest sustained loss belongs to agent 0. Its mean return falls from 2.07 over episodes 40k–50k to 0.61 over 80k–90k, before recovering partially to 0.88 in the final 2,000 episodes. Over those same two 10,000-episode intervals, collective return falls from 6.17 to 4.41, with agent 0 accounting for most of the drop. Agent 1 remains comparatively strong, finishing at 2.13, while agent 2 finishes at 1.58.</p>
 <p>Seed 2’s late weakness is concentrated in agent 2, which finishes at 1.36 while the other two agents exceed 2.2. Seed 1 ends with all three agents between 1.98 and 2.35. The aggregate curves therefore conceal an important difference: a lower collective return can reflect a substantial loss by one learner while the others continue earning rewards.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
